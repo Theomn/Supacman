@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameAccessor
 {
-    public LevelLoader levelLoader;
+    public LevelController level;
     public GameObject camera;
+    public Player player;
 
     private static GameAccessor instance;
 
