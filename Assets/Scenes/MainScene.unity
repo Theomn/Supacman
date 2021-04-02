@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 218389850}
   - component: {fileID: 218389855}
   - component: {fileID: 218389851}
+  - component: {fileID: 218389856}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -184,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8963e054e743f7e4ab483c58d0bd1020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveDelay: 0
   x: 0
   y: 0
 --- !u!65 &218389851
@@ -276,6 +278,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &218389856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218389849}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17329e4055bdebb4889408b93591d5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDelay: 0
+  x: 0
+  y: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8406695beb30c54d9549479fb263659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelText: {fileID: 4900000, guid: 53e6811cdb0da474fa9562c1e25ee577, type: 3}
+  levelText: {fileID: 4900000, guid: 904e0781cd1fcdc47aaec285b069c55b, type: 3}
   levelLocation: {fileID: 153029270}
   wallPrefab: {fileID: 5233302539112041906, guid: 4f780bb10e9679447a639e6ab59469da,
     type: 3}

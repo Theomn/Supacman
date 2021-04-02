@@ -7,9 +7,10 @@ public class AIDiagonalVilainStrategy : IControllerStrategy
 {
     private List<List<bool>> levelGrid;
 
+    public float moveDelay = 0.6f;
+
     public Tuple<int, int> CalculateNextPosition(int x, int y)
     {
-        
         Tuple<int, int> outputPosition = new Tuple<int, int>(x, y);
         Player player = GameAccessor.Instance().player;
         var path = AStarAlgorithm.Compute(x, y, player.x, player.y, AStarAlgorithm.MovementType.Diagonal, 1.2f);
@@ -31,5 +32,10 @@ public class AIDiagonalVilainStrategy : IControllerStrategy
                 Debug.DrawLine(level.LevelToWorldPosition(node.x, node.y), level.LevelToWorldPosition(node.previousNode.x, node.previousNode.y), Color.red, 0.5f);
             }       
         }
+    }
+
+    public float GetMoveDelay()
+    {
+        return 0.6f;
     }
 }

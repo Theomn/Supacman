@@ -145,20 +145,20 @@ public class LevelController : MonoBehaviour
     {
         GameObject gameObject = Instantiate(vilainPrefab);
         gameObject.transform.position = LevelToWorldPosition(x, y);
-        var vilain = gameObject.GetComponent<Vilain>();
-        vilain.x = x;
-        vilain.y = y;
-        vilain.controllerStrategy = new AIHorizontalVilainStrategy();
+        var agent = gameObject.GetComponent<ControllableAgent>();
+        agent.x = x;
+        agent.y = y;
+        agent.controllerStrategy = new AIHorizontalVilainStrategy();
     }
 
     private void PlaceVilain2At(int x, int y)
     {
         GameObject gameObject = Instantiate(vilainPrefab);
         gameObject.transform.position = LevelToWorldPosition(x, y);
-        var vilain = gameObject.GetComponent<Vilain>();
-        vilain.x = x;
-        vilain.y = y;
-        vilain.controllerStrategy = new AIDiagonalVilainStrategy();
+        var agent = gameObject.GetComponent<ControllableAgent>();
+        agent.x = x;
+        agent.y = y;
+        agent.controllerStrategy = new AIDiagonalVilainStrategy();
     }
 
     private void PlaceBoundaries()

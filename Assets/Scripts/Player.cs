@@ -11,30 +11,9 @@ public class Player : ControllableAgent
         GameAccessor.Instance().player = this;
     }
 
-    void Start()
+    public override void Start()
     {
-        level = GameAccessor.Instance().level;
         controllerStrategy = new ManualHorizontalStrategy();
-    }
-    
-    void FixedUpdate()
-    {
-        if (state == State.Idle)
-        {
-            Tuple<int, int> nextPosition = controllerStrategy.CalculateNextPosition(x, y);
-            if (nextPosition != null)
-            {
-                state = State.Moving;
-                x = nextPosition.Item1;
-                y = nextPosition.Item2;
-                Vector3 target = level.LevelToWorldPosition(x, y);
-                transform.DOMove(target, 0.3f).OnComplete(EndMovement);
-            }
-        }
-    }
-
-    private void EndMovement()
-    {
-        state = State.Idle;
+        base.Start();
     }
 }

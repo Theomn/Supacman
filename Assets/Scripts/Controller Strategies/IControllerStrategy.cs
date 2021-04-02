@@ -5,6 +5,7 @@ using System;
 
 public interface IControllerStrategy
 {
+    float GetMoveDelay();
     /// <summary>
     /// Returns the next position this agent should go to, considering its current position and the level layout.
     /// </summary>

@@ -32,4 +32,9 @@ public class ManualHorizontalStrategy : IControllerStrategy
         }
         return outputPosition;
     }
+
+    public float GetMoveDelay()
+    {
+        return 0.3f;
+    }
 }
