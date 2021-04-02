@@ -7,6 +7,7 @@ public class GameAccessor
     public LevelController level;
     public GameObject camera;
     public Player player;
+    public Score score;
 
     private static GameAccessor instance;
 

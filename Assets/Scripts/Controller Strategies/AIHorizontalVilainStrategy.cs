@@ -6,9 +6,7 @@ using System;
 public class AIHorizontalVilainStrategy : IControllerStrategy
 {
     private List<List<bool>> levelGrid;
-
-    public float moveDelay = 0.5f;
-
+    
     public Tuple<int, int> CalculateNextPosition(int x, int y)
     {
         Tuple<int, int> outputPosition = new Tuple<int, int>(x, y);

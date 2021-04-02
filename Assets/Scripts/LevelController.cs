@@ -95,6 +95,10 @@ public class LevelController : MonoBehaviour
                 {
                     PlaceVilain2At(x, y);
                 }
+                else if (c == '3')
+                {
+                    PlaceVilain3At(x, y);
+                }
                 x++;
             }
             PlaceWallAt(x, y);
@@ -107,6 +111,16 @@ public class LevelController : MonoBehaviour
         GameAccessor.Instance().camera.transform.position = levelCenter + Vector3.up * ((Mathf.Max(levelWidth, levelHeight)*wallSize)+5);
         PlaceBoundaries();
         AStarAlgorithm.Initialize(grid);
+    }
+
+    public void Reload()
+    {
+        Vector3 levelPosition = levelLocation.position;
+        Destroy(levelLocation.gameObject);
+        var newLevel = Instantiate(new GameObject());
+        newLevel.transform.position = levelPosition;
+        levelLocation = newLevel.transform;
+        Load();
     }
 
     private void PlaceWallAt(int x, int y)
@@ -145,6 +159,7 @@ public class LevelController : MonoBehaviour
     {
         GameObject gameObject = Instantiate(vilainPrefab);
         gameObject.transform.position = LevelToWorldPosition(x, y);
+        gameObject.transform.parent = levelLocation;
         var agent = gameObject.GetComponent<ControllableAgent>();
         agent.x = x;
         agent.y = y;
@@ -155,10 +170,22 @@ public class LevelController : MonoBehaviour
     {
         GameObject gameObject = Instantiate(vilainPrefab);
         gameObject.transform.position = LevelToWorldPosition(x, y);
+        gameObject.transform.parent = levelLocation;
         var agent = gameObject.GetComponent<ControllableAgent>();
         agent.x = x;
         agent.y = y;
         agent.controllerStrategy = new AIDiagonalVilainStrategy();
+    }
+
+    private void PlaceVilain3At(int x, int y)
+    {
+        GameObject gameObject = Instantiate(vilainPrefab);
+        gameObject.transform.position = LevelToWorldPosition(x, y);
+        gameObject.transform.parent = levelLocation;
+        var agent = gameObject.GetComponent<ControllableAgent>();
+        agent.x = x;
+        agent.y = y;
+        agent.controllerStrategy = new AIRandomVilainStrategy();
     }
 
     private void PlaceBoundaries()
