@@ -162,9 +162,9 @@ GameObject:
   - component: {fileID: 218389854}
   - component: {fileID: 218389853}
   - component: {fileID: 218389852}
-  - component: {fileID: 218389851}
   - component: {fileID: 218389850}
   - component: {fileID: 218389855}
+  - component: {fileID: 218389851}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -186,8 +186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
---- !u!135 &218389851
-SphereCollider:
+--- !u!65 &218389851
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -197,7 +197,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &218389852
 MeshRenderer:
@@ -217,7 +217,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a2cdac66e3c020a4083b29e4656adba0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,7 +245,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218389849}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &218389854
 Transform:
   m_ObjectHideFlags: 0
@@ -254,8 +254,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218389849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -523,13 +523,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8406695beb30c54d9549479fb263659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelText: {fileID: 4900000, guid: 4266d18f2ac81cf478b35bf974b986b7, type: 3}
+  levelText: {fileID: 4900000, guid: 53e6811cdb0da474fa9562c1e25ee577, type: 3}
   levelLocation: {fileID: 153029270}
   wallPrefab: {fileID: 5233302539112041906, guid: 4f780bb10e9679447a639e6ab59469da,
     type: 3}
   tokenPrefab: {fileID: 4515569416875934308, guid: 8585fd9389ec0be4d90794cd4e81b2fe,
     type: 3}
   endPrefab: {fileID: 2691768613285691687, guid: f31be9a91b3b39a40a23f1d9fd5ab319,
+    type: 3}
+  vilainPrefab: {fileID: 4825096921051870840, guid: dc22d273938f7a648a3f5c7aad50086a,
     type: 3}
 --- !u!4 &1767542171
 Transform:

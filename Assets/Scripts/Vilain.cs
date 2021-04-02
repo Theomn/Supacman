@@ -1,22 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using System;
+using DG.Tweening;
 
-public class Player : ControllableAgent
+public class Vilain : ControllableAgent
 {
-    private void Awake()
-    {
-        GameAccessor.Instance().player = this;
-    }
-
     void Start()
     {
         level = GameAccessor.Instance().level;
-        controllerStrategy = new ManualHorizontalStrategy();
+        state = State.Idle;
     }
-    
+
     void FixedUpdate()
     {
         if (state == State.Idle)
@@ -28,7 +23,7 @@ public class Player : ControllableAgent
                 x = nextPosition.Item1;
                 y = nextPosition.Item2;
                 Vector3 target = level.LevelToWorldPosition(x, y);
-                transform.DOMove(target, 0.3f).OnComplete(EndMovement);
+                transform.DOMove(target, 0.5f).OnComplete(EndMovement);
             }
         }
     }

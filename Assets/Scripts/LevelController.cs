@@ -11,6 +11,7 @@ public class LevelController : MonoBehaviour
     public GameObject wallPrefab;
     public GameObject tokenPrefab;
     public GameObject endPrefab;
+    public GameObject vilainPrefab;
 
     public int levelWidth { get; private set; }
     public int levelHeight { get; private set; }
@@ -86,7 +87,15 @@ public class LevelController : MonoBehaviour
                 {
                     PlacePlayerAt(x, y);
                 }
-                    x++;
+                else if (c == '1')
+                {
+                    PlaceVilain1At(x, y);
+                }
+                else if (c == '2')
+                {
+                    PlaceVilain2At(x, y);
+                }
+                x++;
             }
             PlaceWallAt(x, y);
             grid[y].Add(true);
@@ -97,6 +106,7 @@ public class LevelController : MonoBehaviour
         levelCenter = Vector3.right * ((levelWidth / 2f) * wallSize) + Vector3.back * ((levelHeight / 2f) * wallSize);
         GameAccessor.Instance().camera.transform.position = levelCenter + Vector3.up * ((Mathf.Max(levelWidth, levelHeight)*wallSize)+5);
         PlaceBoundaries();
+        AStarAlgorithm.Initialize(grid);
     }
 
     private void PlaceWallAt(int x, int y)
@@ -129,6 +139,26 @@ public class LevelController : MonoBehaviour
         player.transform.position = LevelToWorldPosition(x, y);
         player.x = x;
         player.y = y;
+    }
+
+    private void PlaceVilain1At(int x, int y)
+    {
+        GameObject gameObject = Instantiate(vilainPrefab);
+        gameObject.transform.position = LevelToWorldPosition(x, y);
+        var vilain = gameObject.GetComponent<Vilain>();
+        vilain.x = x;
+        vilain.y = y;
+        vilain.controllerStrategy = new AIHorizontalVilainStrategy();
+    }
+
+    private void PlaceVilain2At(int x, int y)
+    {
+        GameObject gameObject = Instantiate(vilainPrefab);
+        gameObject.transform.position = LevelToWorldPosition(x, y);
+        var vilain = gameObject.GetComponent<Vilain>();
+        vilain.x = x;
+        vilain.y = y;
+        vilain.controllerStrategy = new AIDiagonalVilainStrategy();
     }
 
     private void PlaceBoundaries()
